@@ -8,10 +8,10 @@ env:
   - REPOSITORY=compdatasci/atom-desktop BRANCH=master
   - REPOSITORY=compdatasci/octave-desktop BRANCH=master
   - REPOSITORY=compdatasci/ams595-desktop BRANCH=master
-  - REPOSITORY=compdatasci/ams526-desktop BRANCH=master
-  - REPOSITORY=fastsolve/fastsolve-desktop BRANCH=master
-  - REPOSITORY=numgeom/numgeom-desktop BRANCH=master
-  - REPOSITORY=unifem/unifem-desktop BRANCH=master
+  - REPOSITORY=compdatasci/ams562-desktop BRANCH=master
+  - REPOSITORY=fastsolve/docker-desktop BRANCH=master
+  - REPOSITORY=numgeom/docker-desktop BRANCH=master
+  - REPOSITORY=unifem/docker-desktop BRANCH=master
 
 before_script:
   - git config --global user.email "xmjiao@gmail.com"
