@@ -4,7 +4,14 @@ sudo: required
 language: python
 
 env:
+  - REPOSITORY=x11vnc/smartgit-desktop BRANCH=master
+  - REPOSITORY=compdatasci/atom-desktop BRANCH=master
+  - REPOSITORY=compdatasci/octave-desktop BRANCH=master
   - REPOSITORY=compdatasci/ams595-desktop BRANCH=master
+  - REPOSITORY=compdatasci/ams526-desktop BRANCH=master
+  - REPOSITORY=fastsolve/fastsolve-desktop BRANCH=master
+  - REPOSITORY=numgeom/numgeom-desktop BRANCH=master
+  - REPOSITORY=unifem/unifem-desktop BRANCH=master
 
 before_script:
   - git config --global user.email "xmjiao@gmail.com"
@@ -14,7 +21,8 @@ script:
 # Update README by inserting new section for full-screen mode
   - "git clone -b $BRANCH https://$GIT_USER:$GIT_TOKEN@github.com/$REPOSITORY childrepo 2> /dev/null &&
     cd childrepo &&
-    perl -0777 -e 's/## Entering Full-Screen Mode.+(\n##)/%%FULL_SCREEN_SECTION%%$1/igs' -p README.md | sed -e '/%%FULL_SCREEN_SECTION%%/ {' -e 'r .travis.yml' -e 'd' -e '}' > README.new &&
+    perl -0777 -e 's/## Entering Full-Screen Mode.+(\n##)/%%FULL_SCREEN_SECTION%%$1/igs' -p README.md | sed -e '/%%FULL_SCREEN_SECTION%%/ {' -e 'r doc/fullscreen.md' -e 'd' -e '}' > README.new &&
     (diff README.new README.md ||
-     (git commit -m 'Updated README for full-screen mode' &&
+     (cp README.new README.md &&
+      git commit -m 'Updated README for full-screen mode' README.md &&
       git push))"
