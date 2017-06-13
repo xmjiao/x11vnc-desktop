@@ -30,13 +30,13 @@ script:
     sed -e '/%%PREPARATION_SECTION%%/ {' -e 'r ../doc/preparation.md' -e 'd' -e '}' > README.new &&
     (diff README.md README.new || cp README.new README.md)"
   - sed -e "s/%%PROJECT%%/$PROJECT/" -i ../doc/tips.md
-  - "(perl -0777 -e 's/## Tips and Tricks\n.+(\n## )/%%TIPSANDTRICKS_SECTION%%$1/igs' -p README.md |
+  - "perl -0777 -e 's/## Tips and Tricks\n.+(\n## )/%%TIPSANDTRICKS_SECTION%%$1/igs' -p README.md |
      sed -e '/%%TIPSANDTRICKS_SECTION%%/ {' -e 'r ../doc/tips.md' -e 'd' -e '}' > README.new &&
      (diff README.md README.new || cp README.new README.md)"
   - "[[ -z $(cat README.md | tr '\n' '\r' | egrep -e '## Tips and Tricks\r.+(\r##)') ]] &&
      (perl -0777 -e 's/## Tips and Tricks\n.+$/%%TIPSANDTRICKS_SECTION%%/igs' -p README.md |
       sed -e '/%%TIPSANDTRICKS_SECTION%%/ {' -e 'r ../doc/tips.md' -e 'd' -e '}' > README.new &&
-      (diff README.md README.new || cp README.new README.md)"
+      (diff README.md README.new || cp README.new README.md))"
   #- "([[ -z $(git diff -- README.md) ]] ||
   #     (git commit -m 'Updated README for full-screen mode' README.md &&
  #      git push))"
