@@ -6,14 +6,14 @@ language: python
 env:
   - REPOSITORY=x11vnc/smartgit-desktop BRANCH=master PROJECT=
   - REPOSITORY=compdatasci/atom-desktop BRANCH=master PROJECT=
-  - REPOSITORY=compdatasci/octave-desktop BRANCH=master PROJECT='\$HOME\/project, '
-  - REPOSITORY=compdatasci/spyder-desktop BRANCH=master PROJECT='\$HOME\/project, '
-  - REPOSITORY=compdatasci/rstudio-desktop BRANCH=master PROJECT='\$HOME\/project, '
-  - REPOSITORY=compdatasci/ams595-desktop BRANCH=master PROJECT='\$HOME\/project, '
-  - REPOSITORY=compdatasci/ams562-desktop BRANCH=master PROJECT='\$HOME\/project, '
-  - REPOSITORY=fastsolve/docker-desktop BRANCH=master PROJECT='\$HOME\/fastsolve, '
-  - REPOSITORY=numgeom/docker-desktop BRANCH=master PROJECT='\$HOME\/numgeom, '
-  - REPOSITORY=unifem/docker-desktop BRANCH=master PROJECT='\$HOME\/unifem, '
+  - REPOSITORY=compdatasci/octave-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
+  - REPOSITORY=compdatasci/spyder-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
+  - REPOSITORY=compdatasci/rstudio-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
+  - REPOSITORY=compdatasci/ams595-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
+  - REPOSITORY=compdatasci/ams562-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
+  - REPOSITORY=fastsolve/docker-desktop BRANCH=master PROJECT=', \$HOME\/fastsolve`, '
+  - REPOSITORY=numgeom/docker-desktop BRANCH=master PROJECT=', \$HOME\/numgeom`, '
+  - REPOSITORY=unifem/docker-desktop BRANCH=master PROJECT=', `\$HOME\/unifem`, '
 
 before_script:
   - git config --global user.email "xmjiao@gmail.com"
@@ -37,6 +37,6 @@ script:
      (perl -0777 -e 's/## Tips and Tricks\n.+$/%%TIPSANDTRICKS_SECTION%%/igs' -p README.md |
       sed -e '/%%TIPSANDTRICKS_SECTION%%/ {' -e 'r ../doc/tips.md' -e 'd' -e '}' > README.new &&
       (diff README.md README.new || cp README.new README.md))"
-  #- "([[ -z $(git diff -- README.md) ]] ||
-  #     (git commit -m 'Updated README for full-screen mode' README.md &&
- #      git push))"
+  - "([[ -z $(git diff -- README.md) ]] ||
+      (git commit -m 'Updated README for full-screen mode' README.md &&
+      git push))"
