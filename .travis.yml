@@ -23,7 +23,7 @@ script:
   # Update README by inserting new section for full-screen mode
   - "git clone -b $BRANCH https://$GIT_USER:$GIT_TOKEN@github.com/$REPOSITORY childrepo 2> /dev/null &&
     cd childrepo"
-  - "perl -0777 -e 's/## Entering Full-Screen Mode(.+?)(\n## Tips )/%%FULL_SCREEN_SECTION%%$2/igs' -p README.md |
+  - "perl -0777 -e 's/## Entering Full-Screen Mode\n(.+?)(\n## Tips )/%%FULL_SCREEN_SECTION%%$2/igs' -p README.md |
     sed -e '/%%FULL_SCREEN_SECTION%%/ {' -e 'r ../doc/fullscreen.md' -e 'd' -e '}' > README.new &&
     (diff README.md README.new || cp README.new README.md)"
   - "perl -0777 -e 's/## Preparation\n(.+?)(\n## )/%%PREPARATION_SECTION%%$2/igs' -p README.md |
