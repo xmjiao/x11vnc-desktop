@@ -38,5 +38,5 @@ script:
       sed -e '/%%TIPSANDTRICKS_SECTION%%/ {' -e 'r ../doc/tips.md' -e 'd' -e '}' > README.new &&
       (diff README.md README.new || cp README.new README.md))"
   - "([[ -z $(git diff -- README.md) ]] ||
-      (git commit -m 'Updated README for full-screen mode' README.md &&
+      (git commit -m 'Updated README' README.md &&
       git push))"
