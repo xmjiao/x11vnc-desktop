@@ -11,8 +11,10 @@ Download the Docker Community Edition for free at https://www.docker.com/communi
 
 **Notes for Windows Users**
 1. Docker only supports 64-bit Windows 10 Pro or higher. If you have Windows 8 or Windows 10 Home, you need to upgrade your Windows operating system before installing Docker. Stony Brook students can get Windows 10 Education free of charge at https://stonybrook.onthehub.com. Note that the older [Docker Toolbox](https://www.docker.com/products/docker-toolbox) supports older versions of Windows, but it should not be used.
-2. After installing Docker, you may need to restart your computer to enable virtualization.
-3. When you use Docker for the first time, you must change its settings to make the C drive shared. To do this, right-click the Docker icon in the system tray, and then click on `Settings...`. Go to `Shared Drives` tab and check the C drive.
+2. After installing Docker, you may need to restart your computer to enable virtualization and Microsoft Hyper-V.
+3. For Docker version 17.06 or later, you must add yourself to be a member of the group “docker-users” to run Docker for Windows.
+4. If you previously installed VMWare or VirtualBox on your Windows computer, they might conflict with Docker. You may get an error message stating that virtualization must be enabled when starting Docker, even though virtualization was already enabled. To resolve the issue, go to Windows Features in the Control Panel, disable Hyper-V and then re-enable it.
+5. When you use Docker for the first time, you must change its settings to make the C drive shared. To do this, right-click the Docker icon in the system tray, and then click on `Settings...`. Go to `Shared Drives` tab and check the C drive.
 
 **Notes for Linux Users**
 * After you install Docker, make sure you add yourself to the Docker group by running the command:
