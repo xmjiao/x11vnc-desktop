@@ -9,7 +9,7 @@ If you use Windows, you need to install Python if you have not yet done so. The 
 ### Installing Docker
 Download the Docker Community Edition for free at https://www.docker.com/community-edition#/download and then run the installer. Note that you need administrator's privilege to install Docker. After installation, make sure you launch Docker before proceeding to the next step.
 
-**Important Notes for Windows Users**
+**Notes for Windows Users**
 1. Docker only supports 64-bit Windows 10 Pro or higher. If you have Windows 8 or Windows 10 Home, you need to upgrade your Windows operating system before installing Docker. Stony Brook students can get Windows 10 Education free of charge at https://stonybrook.onthehub.com. Note that the older [Docker Toolbox](https://www.docker.com/products/docker-toolbox) supports older versions of Windows, but it should not be used.
 2. After installing Docker, you may need to restart your computer to enable virtualization and Microsoft Hyper-V.
 3. For security reasons, you should use Docker in a standard user account instead of the Administrator account, even if you are the sole user on the computer. For Docker version 17.06 or later, you must add yourself to be a member of the group “docker-users” to run Docker for Windows.
@@ -23,3 +23,6 @@ Download the Docker Community Edition for free at https://www.docker.com/communi
 sudo adduser $USER docker
 ```
 Then, log out and log back in before you can use Docker.
+
+**Notes for Mac Users**
+On Mac, the clock in Docker would lag when your computer goes to sleep and then wakes up. You can resolve this issue either by restarting Docker after waking up or by installing [sync-docker-time](https://github.com/x11vnc/sync-docker-time).
