@@ -5,6 +5,7 @@ language: python
 
 env:
   - REPOSITORY=x11vnc/smartgit-desktop BRANCH=master PROJECT=
+  - REPOSITORY=x11vnc/sublime-desktop BRANCH=master PROJECT=
   - REPOSITORY=compdatasci/atom-desktop BRANCH=master PROJECT=
   - REPOSITORY=compdatasci/octave-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
   - REPOSITORY=compdatasci/spyder-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
