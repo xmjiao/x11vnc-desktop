@@ -12,6 +12,7 @@ env:
   - REPOSITORY=compdatasci/rstudio-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
   - REPOSITORY=compdatasci/ams595-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
   - REPOSITORY=compdatasci/ams562-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
+  - REPOSITORY=compdatasci/ams529-desktop BRANCH=master PROJECT=', \$HOME\/project`, '
   - REPOSITORY=fastsolve/docker-desktop BRANCH=master PROJECT=', \$HOME\/fastsolve`, '
   - REPOSITORY=numgeom/docker-desktop BRANCH=master PROJECT=', \$HOME\/numgeom`, '
   - REPOSITORY=unifem/docker-desktop BRANCH=master PROJECT=', `\$HOME\/unifem`, '
