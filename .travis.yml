@@ -16,6 +16,10 @@ env:
   - REPOSITORY=fastsolve/docker-desktop BRANCH=master PROJECT=', `\$HOME\/fastsolve`, '
   - REPOSITORY=numgeom/docker-desktop BRANCH=master PROJECT=', `\$HOME\/numgeom`, '
   - REPOSITORY=unifem/docker-desktop BRANCH=master PROJECT=', `\$HOME\/unifem`, '
+  - REPOSITORY=unifem/fenics-desktop BRANCH=master PROJECT=', `\$HOME\/unifem`, '
+  - REPOSITORY=unifem/meshdb-desktop BRANCH=master PROJECT=', `\$HOME\/unifem`, '
+  - REPOSITORY=unifem/mapper-desktop BRANCH=master PROJECT=', `\$HOME\/unifem`, '
+  - REPOSITORY=unifem/coupler-desktop BRANCH=master PROJECT=', `\$HOME\/unifem`, '
 
 before_script:
   - git config --global user.email "xmjiao@gmail.com"
