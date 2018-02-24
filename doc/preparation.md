@@ -22,8 +22,13 @@ Download the Docker Community Edition for free at https://www.docker.com/communi
 2. On Mac, the clock in Docker would lag when your computer goes to sleep and then wakes up. You can resolve this issue either by restarting Docker after waking up or by installing [sync-docker-time](https://github.com/x11vnc/sync-docker-time).
 
 **Notes for Linux Users**
-* After you install Docker, make sure you add yourself to the Docker group by running the command:
+* Most Linux distributions have a `docker` package. You can use the package installer for your system to install `docker`. Note that on some system, you need to run `sudo systemctl enable docker` and `sudo systemctl start docker` to start up `docker`.
+* After you install Docker, make sure you add yourself to the `docker` group. On Ubuntu, this is done by running the command:
 ```
 sudo adduser $USER docker
 ```
-Then, log out and log back in before you can use Docker.
+On other systems, try the following command.
+```
+sudo usermod -G docker -a $USER 
+```
+After adding yourself to the `docker` group, you need to log out and log back in before you can use Docker.
