@@ -24,8 +24,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install some required system tools and packages for X Windows and ssh.
 # Also remove the message regarding unminimize.
-# Note that Ubuntu 22.04 uses snapd for firefox, which does not work properly,
-# so we install it from ppa:mozillateam/ppa instead.
+# Note that Ubuntu 22.04 no longer supports installing firefox using apt.
+# Install Google-chrome instead..
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         apt-utils \
@@ -72,16 +72,14 @@ RUN apt-get update && \
         gtk2-engines-pixbuf \
         gtk2-engines-murrine \
         libcanberra-gtk-module libcanberra-gtk3-module \
+        fonts-liberation \
         xfonts-base xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic \
         libopengl0 mesa-utils libglu1-mesa libgl1-mesa-dri libjpeg8 libjpeg62 \
-        xauth \
+        xauth xdg-utils \
         x11vnc && \
     chmod 755 /usr/local/share/zsh/site-functions && \
-    add-apt-repository -y ppa:mozillateam/ppa && \
-    echo 'Package: *' > /etc/apt/preferences.d/mozilla-firefox && \
-    echo 'Pin: release o=LP-PPA-mozillateam' >> /etc/apt/preferences.d/mozilla-firefox && \
-    echo 'Pin-Priority: 1001' >> /etc/apt/preferences.d/mozilla-firefox && \
-    apt install -y firefox && \
+    curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    apt -i ./google-chrome-stable_current_amd64.deb && \
     apt-get -y autoremove && \
     ssh-keygen -A && \
     ln -s -f /lib64/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so && \
@@ -158,9 +156,7 @@ ADD image/sbin /sbin
 ADD image/home $DOCKER_HOME
 
 # Make home directory readable to work with Singularity
-RUN mkdir -p $DOCKER_HOME/.config/mozilla && \
-    ln -s -f .config/mozilla $DOCKER_HOME/.mozilla && \
-    touch $DOCKER_HOME/.sudo_as_admin_successful && \
+RUN touch $DOCKER_HOME/.sudo_as_admin_successful && \
     mkdir -p $DOCKER_HOME/shared && \
     mkdir -p $DOCKER_HOME/.ssh && \
     mkdir -p $DOCKER_HOME/.log && touch $DOCKER_HOME/.log/vnc.log && \
