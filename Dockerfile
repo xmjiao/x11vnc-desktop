@@ -25,7 +25,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Install some required system tools and packages for X Windows and ssh.
 # Also remove the message regarding unminimize.
 # Note that Ubuntu 22.04 no longer supports installing firefox using apt.
-# Install Google-chrome instead..
+# Install Google-chrome instead.
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         apt-utils \
