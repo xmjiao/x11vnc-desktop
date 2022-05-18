@@ -79,7 +79,7 @@ RUN apt-get update && \
         x11vnc && \
     chmod 755 /usr/local/share/zsh/site-functions && \
     curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    apt -i ./google-chrome-stable_current_amd64.deb && \
+    apt install -y ./google-chrome-stable_current_amd64.deb && \
     apt-get -y autoremove && \
     ssh-keygen -A && \
     ln -s -f /lib64/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so && \
